@@ -10,6 +10,8 @@ const LABELS: Record<StageView["kind"], string> = {
   about: "about",
   experience: "experience",
   linkedin: "linkedin",
+  blog: "blog",
+  techstack: "techstack",
   contact: "contact",
 };
 
@@ -19,7 +21,9 @@ const PAGE_NUMBERS: Record<StageView["kind"], string> = {
   about: "01",
   experience: "02",
   linkedin: "03",
-  contact: "04",
+  blog: "04",
+  techstack: "05",
+  contact: "06",
 };
 
 export function ContentPagePlaceholder({ onClose }: { onClose: () => void }) {
