@@ -2,7 +2,7 @@
 
 Personal portfolio site rendered as a spiral-bound journal. The chat is the home page, and every major section is a page you can flip to with a slash command or a matching question.
 
-Live site: [nishant-borude.com](https://nishant-borude.com)
+Live site: [nishant-borude.com](https://note-folio.onrender.com/)
 
 ## What’s Inside
 
