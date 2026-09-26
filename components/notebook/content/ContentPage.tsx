@@ -11,6 +11,7 @@ import { ExperiencePage } from "../split/ExperiencePage";
 import { LinkedInPage } from "../split/LinkedInPage";
 import { BlogPage } from "../split/BlogPage";
 import { TechStackPage } from "../split/TechStackPage";
+import { ProjectsPage } from "../split/ProjectsPage";
 import { ChatSidebar, SIDEBAR_PCT } from "./ChatSidebar";
 import { MobileChatDrawer } from "./MobileChatDrawer";
 
@@ -139,5 +140,7 @@ function ContentBody({
     return <BlogPage onClose={onClose} animate={animate} sessionKey={sessionKey} />;
   if (kind === "techstack")
     return <TechStackPage onClose={onClose} animate={animate} sessionKey={sessionKey} />;
+  if (kind === "projects")
+    return <ProjectsPage onClose={onClose} animate={animate} sessionKey={sessionKey} />;
   return <ContentPagePlaceholder onClose={onClose} />;
 }

@@ -14,11 +14,15 @@ import {
 import { Sticker } from "../primitives/Sticker";
 
 const BODY_PARAGRAPHS = [
-  "A passionate Computer Science student at GH Raisoni Institute of Engineering and Management, Jalgaon, who loves building real-world tech products, solving practical problems, and exploring the power of AI. I'm deeply interested in full-stack development, artificial intelligence, open source, and creating products that people actually use.",
-  "Currently pursuing B.E./B.Tech in Computer Science, I spend most of my time building projects, contributing to open source, participating in hackathons, and improving my problem-solving skills through DSA and development.",
-  "I enjoy working on projects that combine innovation with real-world impact — from AI-powered assistants and smart agriculture systems to SaaS platforms, productivity tools, and scalable web applications.",
-  "Career path so far:\n→ Full Stack Developer\n→ Open Source Contributor\n→ AI/ML Project Builder\n→ Hackathon Builder\n→ Future Software Engineer\nI believe consistency beats motivation. I keep building, learning, failing, improving — until something clicks.",
-  "Outside of tech: coffee, late-night coding, freelancing, startup ideas, open source contributions, and turning crazy concepts into real products."
+  "I'm a Computer Science student and Software Developer focused on building real-world applications, solving practical problems, and exploring AI-powered solutions. My interests include full-stack development, backend engineering, Generative AI, and open-source software.",
+
+  "Currently pursuing my B.Tech in Computer Science, I've gained hands-on experience through software development and testing internships, open-source contributions, and personal projects. I work with technologies such as React, Next.js, Node.js, Express.js, Python, MongoDB, PostgreSQL, Redis, and Docker.",
+
+  "I enjoy building products that combine solid engineering with practical AI capabilities — from full-stack platforms and scalable REST APIs to AI-powered assistants, tax-planning tools, and developer-focused applications. I'm also actively strengthening my Data Structures & Algorithms and core Computer Science fundamentals.",
+
+  "Career path so far:\n→ Full-Stack Developer Intern\n→ Software & Website Testing Intern\n→ Open Source Contributor\n→ GenAI & LLM Application Builder\n→ DSA Problem Solver\n→ Future Software Engineer\nI believe consistent learning, building, and contributing are the best ways to grow as an engineer.",
+
+  "Outside of development, I enjoy exploring new technologies, contributing to open source, participating in hackathons, learning from the developer community, and turning ideas into useful products."
 ];
 
 // Photos + slot positions split into two lists so the site can randomly
@@ -123,21 +127,15 @@ const MARGIN_NOTES: Array<{
   rotate: number;
   delayMs: number;
 }> = [
-  {
-    text: "coffee:\nminimum 3 cups per day",
-    top: "calc(var(--line) * 7)",
-    left: "3.5%",
-    rotate: -7,
-    delayMs: 1800,
-  },
-  {
-    text: "basketball:\n80-90% smoke rate",
-    top: "calc(var(--line) * 18)",
-    left: "4%",
-    rotate: 5,
-    delayMs: 2400,
-  },
-];
+    {
+      text: "coffee:\nminimum 3 cups per day",
+      top: "calc(var(--line) * 7)",
+      left: "3.5%",
+      rotate: -7,
+      delayMs: 1800,
+    },
+
+  ];
 
 // Mobile sticker positions — % offsets relative to the polaroid strip
 // container. Calibrated so they cluster around the photo strip without
@@ -148,11 +146,11 @@ const MOBILE_STICKER_OFFSETS: Array<{
   right?: string;
   delayMs: number;
 }> = [
-  { top: "0", right: "8%", delayMs: 2200 },
-  { top: "32%", left: "4%", delayMs: 2400 },
-  { top: "62%", right: "12%", delayMs: 2600 },
-  { top: "88%", left: "8%", delayMs: 2800 },
-];
+    { top: "0", right: "8%", delayMs: 2200 },
+    { top: "32%", left: "4%", delayMs: 2400 },
+    { top: "62%", right: "12%", delayMs: 2600 },
+    { top: "88%", left: "8%", delayMs: 2800 },
+  ];
 
 export function AboutPage({
   onClose,
@@ -182,191 +180,227 @@ export function AboutPage({
 
   return (
     <PageAnimateContext.Provider value={{ animate, sessionKey }}>
-    <div style={{ position: "absolute", inset: 0 }}>
-      <Paper ruled={false} marginRule={false} />
+      <div style={{ position: "absolute", inset: 0 }}>
+        <Paper ruled={false} marginRule={false} />
 
-      {/* Scrolling content area */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          paddingTop: "calc(var(--line) * 3)",
-          paddingBottom: "calc(var(--line) * 3)",
-          paddingLeft: isMobile
-            ? "calc(var(--pad-content) + 44px)"
-            : "calc(12% + var(--pad-content))",
-          paddingRight: isMobile ? "var(--pad-content)" : "8%",
-          overflowY: "auto",
-          // Ruled lines travel with the content as the user scrolls.
-          // background-attachment: local binds the bg to the content, not
-          // to the scroll container — without it the rules would stick to
-          // the div while text moved past them, making the text drift
-          // off-grid visually. Formula in globals.css keeps text baseline
-          // on rule at every viewport.
-          backgroundImage: "var(--rule-background)",
-          backgroundAttachment: "local",
-        }}
-      >
-        {/* Page meta stacked in the top-left gutter: back button + page
-            label. Keeps all page chrome on one side, out of the chat's way. */}
-        <PageBackButton onClose={onClose} />
-
+        {/* Scrolling content area */}
         <div
           style={{
             position: "absolute",
-            // Baseline floats 0.19 × --line above rule 2 — matches the
-            // sender-label offset in chat home.
-            top: "calc(var(--line) * 2.57 - var(--fs-meta) * 0.86)",
-            left: isMobile
-              ? "calc(44px + var(--pad-content))"
-              : "calc(3% + var(--pad-chrome))",
-            fontFamily: "var(--font-mono)",
-            fontSize: "var(--fs-meta)",
-            letterSpacing: "0.25em",
-            textTransform: "uppercase",
-            color:
-              "color-mix(in srgb, var(--color-ink-soft) 55%, transparent)",
-            lineHeight: 1,
+            inset: 0,
+            paddingTop: "calc(var(--line) * 3)",
+            paddingBottom: "calc(var(--line) * 3)",
+            paddingLeft: isMobile
+              ? "calc(var(--pad-content) + 44px)"
+              : "calc(12% + var(--pad-content))",
+            paddingRight: isMobile ? "var(--pad-content)" : "8%",
+            overflowY: "auto",
+            // Ruled lines travel with the content as the user scrolls.
+            // background-attachment: local binds the bg to the content, not
+            // to the scroll container — without it the rules would stick to
+            // the div while text moved past them, making the text drift
+            // off-grid visually. Formula in globals.css keeps text baseline
+            // on rule at every viewport.
+            backgroundImage: "var(--rule-background)",
+            backgroundAttachment: "local",
           }}
         >
-          journal · about
-        </div>
+          {/* Page meta stacked in the top-left gutter: back button + page
+            label. Keeps all page chrome on one side, out of the chat's way. */}
+          <PageBackButton onClose={onClose} />
 
-        {/* Handwritten page title */}
-        <h1
-          style={{
-            fontFamily: "var(--font-script)",
-            fontSize: "var(--fs-display)",
-            fontWeight: 500,
-            color: "var(--color-ink)",
-            margin: 0,
-            lineHeight: "calc(var(--line) * 3)",
-          }}
-        >
-          about
-        </h1>
+          <div
+            style={{
+              position: "absolute",
+              // Baseline floats 0.19 × --line above rule 2 — matches the
+              // sender-label offset in chat home.
+              top: "calc(var(--line) * 2.57 - var(--fs-meta) * 0.86)",
+              left: isMobile
+                ? "calc(44px + var(--pad-content))"
+                : "calc(3% + var(--pad-chrome))",
+              fontFamily: "var(--font-mono)",
+              fontSize: "var(--fs-meta)",
+              letterSpacing: "0.25em",
+              textTransform: "uppercase",
+              color:
+                "color-mix(in srgb, var(--color-ink-soft) 55%, transparent)",
+              lineHeight: 1,
+            }}
+          >
+            journal · about
+          </div>
 
-        {/* Polaroids anchored to the right (desktop only). On mobile, they
+          {/* Handwritten page title */}
+          <h1
+            style={{
+              fontFamily: "var(--font-script)",
+              fontSize: "var(--fs-display)",
+              fontWeight: 500,
+              color: "var(--color-ink)",
+              margin: 0,
+              lineHeight: "calc(var(--line) * 3)",
+            }}
+          >
+            about
+          </h1>
+
+          {/* Polaroids anchored to the right (desktop only). On mobile, they
             move into a stacked strip below the body text. */}
-        {!isMobile &&
-          POLAROID_SLOTS.map((slot, slotIdx) => {
-            const photo = PHOTOS[photoOrder[slotIdx]];
-            return (
-              <PolaroidFrame
-                key={`${sessionKey}-${slotIdx}`}
-                polaroid={{ ...photo, ...slot }}
-                delayMs={1200 + slotIdx * 200}
-              />
-            );
-          })}
+          {!isMobile &&
+            POLAROID_SLOTS.map((slot, slotIdx) => {
+              const photo = PHOTOS[photoOrder[slotIdx]];
+              return (
+                <PolaroidFrame
+                  key={`${sessionKey}-${slotIdx}`}
+                  polaroid={{ ...photo, ...slot }}
+                  delayMs={1200 + slotIdx * 200}
+                />
+              );
+            })}
 
-        {/* Drawn-in greeting. Height locked to 3× the ruler pitch (96px)
+          {/* Drawn-in greeting. Height locked to 3× the ruler pitch (96px)
             + bottom margin = 32px so the grid stays clean. maxWidth
             reserves space for polaroid slot 0 (right: 325 + width: 205
             = 530 from right) — dropped on mobile where polaroids stack
             below the body. */}
-        <div
-          style={{
-            height: "calc(var(--line) * 3)",
-            marginBottom: "var(--line)",
-            display: "flex",
-            alignItems: "center",
-            maxWidth: isMobile ? "100%" : "calc(100% - 440px)",
-          }}
-        >
-          <DrawnText
-            text="hi — I'm Nishant"
-            fontFamily="Caveat"
-            fontSize={isMobile ? 38 : 56}
-            fontWeight={500}
-            color="var(--color-ink)"
-            duration={1.4}
-            fillAfter
-            fillDelay={0.15}
-            strokeWidth={1.1}
-          />
-        </div>
-
-        {/* Body paragraphs — text wraps to the left of the absolute polaroids
-            via max-width on desktop; full-width on mobile. Each paragraph
-            stays on the ruler grid. */}
-        <div
-          style={{
-            // Reserve sized for the most-inset polaroid that shares a
-            // vertical range with body text. Polaroid slot 0 sits at
-            // top=30 (entirely above body text y=334), so it's ignored
-            // here. Polaroid slot 2 at right=220 + width=215 = 435 from
-            // right is the binding constraint — reserve 360 leaves a
-            // small gap (rounded up). Mobile drops the reservation since
-            // polaroids stack below.
-            maxWidth: isMobile ? "100%" : "calc(100% - 360px)",
-            fontFamily: "var(--font-script)",
-            fontSize: "var(--fs-body)",
-            fontWeight: 400,
-            color: "var(--color-ink)",
-            lineHeight: "var(--line)",
-          }}
-        >
-          {BODY_PARAGRAPHS.map((text, i) => (
-            <RevealOnMount key={i} delayMs={1400 + i * 600}>
-              <p
-                style={{
-                  margin: 0,
-                  marginBottom: "var(--line)",
-                }}
-              >
-                <HandwrittenText text={text} charDelayMs={12} />
-              </p>
-            </RevealOnMount>
-          ))}
-        </div>
-
-        {/* Mobile-only: polaroid strip below the body, stickers scattered
-            around it. Both stay draggable — PolaroidFrame's pointer-event
-            drag works on touch as-is. */}
-        {isMobile && (
           <div
             style={{
-              position: "relative",
-              marginTop: "calc(var(--line) * 1.5)",
-              marginBottom: "calc(var(--line) * 2)",
-              minHeight: 540,
+              height: "calc(var(--line) * 3)",
+              marginBottom: "var(--line)",
+              display: "flex",
+              alignItems: "center",
+              maxWidth: isMobile ? "100%" : "calc(100% - 440px)",
             }}
           >
+            <DrawnText
+              text="hi — I'm Nishant"
+              fontFamily="Caveat"
+              fontSize={isMobile ? 38 : 56}
+              fontWeight={500}
+              color="var(--color-ink)"
+              duration={1.4}
+              fillAfter
+              fillDelay={0.15}
+              strokeWidth={1.1}
+            />
+          </div>
+
+          {/* Body paragraphs — text wraps to the left of the absolute polaroids
+            via max-width on desktop; full-width on mobile. Each paragraph
+            stays on the ruler grid. */}
+          <div
+            style={{
+              // Reserve sized for the most-inset polaroid that shares a
+              // vertical range with body text. Polaroid slot 0 sits at
+              // top=30 (entirely above body text y=334), so it's ignored
+              // here. Polaroid slot 2 at right=220 + width=215 = 435 from
+              // right is the binding constraint — reserve 360 leaves a
+              // small gap (rounded up). Mobile drops the reservation since
+              // polaroids stack below.
+              maxWidth: isMobile ? "100%" : "calc(100% - 360px)",
+              fontFamily: "var(--font-script)",
+              fontSize: "var(--fs-body)",
+              fontWeight: 400,
+              color: "var(--color-ink)",
+              lineHeight: "var(--line)",
+            }}
+          >
+            {BODY_PARAGRAPHS.map((text, i) => (
+              <RevealOnMount key={i} delayMs={1400 + i * 600}>
+                <p
+                  style={{
+                    margin: 0,
+                    marginBottom: "var(--line)",
+                  }}
+                >
+                  <HandwrittenText text={text} charDelayMs={12} />
+                </p>
+              </RevealOnMount>
+            ))}
+          </div>
+
+          {/* Mobile-only: polaroid strip below the body, stickers scattered
+            around it. Both stay draggable — PolaroidFrame's pointer-event
+            drag works on touch as-is. */}
+          {isMobile && (
             <div
               style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: 32,
+                position: "relative",
+                marginTop: "calc(var(--line) * 1.5)",
+                marginBottom: "calc(var(--line) * 2)",
+                minHeight: 540,
               }}
             >
-              {POLAROID_SLOTS.map((slot, slotIdx) => {
-                const photo = PHOTOS[photoOrder[slotIdx]];
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: 32,
+                }}
+              >
+                {POLAROID_SLOTS.map((slot, slotIdx) => {
+                  const photo = PHOTOS[photoOrder[slotIdx]];
+                  return (
+                    <MobilePolaroidFrame
+                      key={`${sessionKey}-mob-${slotIdx}`}
+                      photo={photo}
+                      rotation={slot.rotation}
+                      delayMs={1200 + slotIdx * 200}
+                    />
+                  );
+                })}
+              </div>
+
+              {STICKER_SLOTS.map((_, slotIdx) => {
+                const sticker = STICKERS[stickerOrder[slotIdx]];
+                const offset = MOBILE_STICKER_OFFSETS[slotIdx];
                 return (
-                  <MobilePolaroidFrame
-                    key={`${sessionKey}-mob-${slotIdx}`}
-                    photo={photo}
-                    rotation={slot.rotation}
-                    delayMs={1200 + slotIdx * 200}
-                  />
+                  <Sticker
+                    key={`${sessionKey}-mob-stk-${slotIdx}`}
+                    size={sticker.size}
+                    rotation={sticker.rotation}
+                    background={sticker.background}
+                    top={offset.top}
+                    left={offset.left}
+                    right={offset.right}
+                    delayMs={offset.delayMs}
+                  >
+                    {sticker.icon === "coffee" && <CoffeeCupIcon />}
+                    {sticker.icon === "basketball" && <BasketballIcon />}
+                    {sticker.icon === "lobster" && <LobsterIcon />}
+                    {sticker.icon === "monster" && <MonsterIcon />}
+                  </Sticker>
                 );
               })}
             </div>
+          )}
 
-            {STICKER_SLOTS.map((_, slotIdx) => {
+          {/* Margin notes — handwritten asides sitting in the left gutter.
+            Hidden on mobile since the gutter doesn't exist. */}
+          {!isMobile &&
+            MARGIN_NOTES.map((note, i) => (
+              <MarginNote key={`${sessionKey}-${i}`} {...note} />
+            ))}
+
+          {/* Desktop stickers — all draggable, placed in whitespace so the
+            initial positions never cover body text. */}
+          {!isMobile &&
+            STICKER_SLOTS.map((slot, slotIdx) => {
               const sticker = STICKERS[stickerOrder[slotIdx]];
-              const offset = MOBILE_STICKER_OFFSETS[slotIdx];
               return (
                 <Sticker
-                  key={`${sessionKey}-mob-stk-${slotIdx}`}
+                  // sessionKey in the key forces a fresh Sticker mount on
+                  // every revisit so its fade-in plays again (drag position
+                  // resets too — acceptable for a decorative element).
+                  key={`${sessionKey}-${slotIdx}`}
                   size={sticker.size}
                   rotation={sticker.rotation}
                   background={sticker.background}
-                  top={offset.top}
-                  left={offset.left}
-                  right={offset.right}
-                  delayMs={offset.delayMs}
+                  top={slot.top}
+                  left={slot.left}
+                  right={slot.right}
+                  delayMs={slot.delayMs}
                 >
                   {sticker.icon === "coffee" && <CoffeeCupIcon />}
                   {sticker.icon === "basketball" && <BasketballIcon />}
@@ -375,49 +409,13 @@ export function AboutPage({
                 </Sticker>
               );
             })}
-          </div>
-        )}
+        </div>
 
-        {/* Margin notes — handwritten asides sitting in the left gutter.
-            Hidden on mobile since the gutter doesn't exist. */}
-        {!isMobile &&
-          MARGIN_NOTES.map((note, i) => (
-            <MarginNote key={`${sessionKey}-${i}`} {...note} />
-          ))}
-
-        {/* Desktop stickers — all draggable, placed in whitespace so the
-            initial positions never cover body text. */}
-        {!isMobile &&
-          STICKER_SLOTS.map((slot, slotIdx) => {
-            const sticker = STICKERS[stickerOrder[slotIdx]];
-            return (
-              <Sticker
-                // sessionKey in the key forces a fresh Sticker mount on
-                // every revisit so its fade-in plays again (drag position
-                // resets too — acceptable for a decorative element).
-                key={`${sessionKey}-${slotIdx}`}
-                size={sticker.size}
-                rotation={sticker.rotation}
-                background={sticker.background}
-                top={slot.top}
-                left={slot.left}
-                right={slot.right}
-                delayMs={slot.delayMs}
-              >
-                {sticker.icon === "coffee" && <CoffeeCupIcon />}
-                {sticker.icon === "basketball" && <BasketballIcon />}
-                {sticker.icon === "lobster" && <LobsterIcon />}
-                {sticker.icon === "monster" && <MonsterIcon />}
-              </Sticker>
-            );
-          })}
-      </div>
-
-      {/* Dog-eared bottom-right corner — sits outside the scroll area so
+        {/* Dog-eared bottom-right corner — sits outside the scroll area so
           the page bookmark is always visible, not only at the bottom of
           the content. */}
-      <PageCorner pageNumber="01" />
-    </div>
+        <PageCorner pageNumber="01" />
+      </div>
     </PageAnimateContext.Provider>
   );
 }
@@ -862,9 +860,8 @@ function PolaroidFrame({
         position: "absolute",
         ...positionStyle,
         width: polaroid.width,
-        transform: `rotate(${polaroid.rotation}deg) scale(${
-          hover || dragging ? 1.03 : 1
-        })`,
+        transform: `rotate(${polaroid.rotation}deg) scale(${hover || dragging ? 1.03 : 1
+          })`,
         // Kill the transform transition while dragging so the polaroid
         // tracks the cursor 1:1 instead of lagging.
         transition: dragging

@@ -41,7 +41,7 @@ type Intent = {
 const NAV_PHRASE =
   /^\s*(\/?(show|see|view|read|open|pull\s+up|take\s+me\s+to|go\s+to)\s+(me\s+|us\s+)?|(can|could|will|would)\s+(i|you|we)\s+(see|show|view|look\s+at|check|read|pull\s+up|open)\s+(me\s+|us\s+)?|(let|lemme)\s+me?\s+(see|view|check|read|look\s+at)\s+|(i|we)('?ll|\s+will|\s+would\s+like|\s+want|\s+wanna|\s+need|'?d\s+like)(\s+to)?\s+(see|view|look\s+at|check|read|open)\s+|how\s+(do|can|should|would|to)\s+(i|we|one)?\s*(contact|reach|email|message|dm|get\s+in\s+touch)\s+)/i;
 
-const TOPIC_PATTERNS: Record<Exclude<ToolName, "showProjects" | "showProject">, RegExp> = {
+const TOPIC_PATTERNS: Record<Exclude<ToolName, "showProject">, RegExp> = {
   showAbout:
     /\b(about\s+(yourself|seb|you|page|section)|who\s+(are|is)\s+(you|seb)|your\s+story|his\s+story|bio|who\s+he\s+is|who\s+you\s+are)\b/i,
   showExperience:
@@ -52,6 +52,7 @@ const TOPIC_PATTERNS: Record<Exclude<ToolName, "showProjects" | "showProject">, 
     /\b(linkedin|posts?|writing|articles?|(what|things)\s+(he'?s|you'?ve)\s+written)\b/i,
   showBlog: /\b(blog|posts?|articles?|writing)\b/i,
   showTechStack: /\b(tech(stack)?|technologies|tools|stack|skills)\b/i,
+  showProjects: /\b(projects?|side\s+projects?|portfolio|built|what\s+(he'?s|you'?ve)\s+made|his\s+work|personal\s+work|what\s+he\s+built)\b/i,
 };
 
 // Bare topic words / slash commands — match without needing a command
@@ -63,7 +64,7 @@ const TOPIC_PATTERNS: Record<Exclude<ToolName, "showProjects" | "showProject">, 
 // seb", "what's his deal", "his work history" — those are questions
 // the LLM should answer, not navigation intents.
 const EXACT_PATTERNS: Record<
-  Exclude<ToolName, "showProjects" | "showProject">,
+  Exclude<ToolName, "showProject">,
   RegExp
 > = {
   showAbout: /^\/about$|^about\??$/i,
@@ -74,10 +75,11 @@ const EXACT_PATTERNS: Record<
     /^\/(linkedin|posts|writing)$|^(linkedin|posts?|writing)\??$/i,
   showBlog: /^\/(blog|posts?)$|^(blog|posts?)\??$/i,
   showTechStack: /^\/(techstack)$|^techstack\??$/i,
+  showProjects: /^\/projects$|^projects?\??$/i,
 };
 
 const REPLIES: Record<
-  Exclude<ToolName, "showProjects" | "showProject">,
+  Exclude<ToolName, "showProject">,
   string
 > = {
   showAbout: "Cool — pulling up the about page.",
@@ -87,15 +89,17 @@ const REPLIES: Record<
     "Flipping through the greatest hits. Click a card to see the full post.",
   showBlog: "Opening the blog overview.",
   showTechStack: "Showing the tech stack and tools.",
+  showProjects: "Here's what he's been building.",
 };
 
-const TOOL_ORDER: Array<Exclude<ToolName, "showProjects" | "showProject">> = [
+const TOOL_ORDER: Array<Exclude<ToolName, "showProject">> = [
   // Order matters: check more-specific topics first if a message hits
   // multiple. LinkedIn and contact are narrower than experience/about,
   // so they go first.
   "showLinkedIn",
   "showBlog",
   "showTechStack",
+  "showProjects",
   "showContact",
   "showExperience",
   "showAbout",

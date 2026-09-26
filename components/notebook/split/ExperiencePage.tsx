@@ -52,89 +52,115 @@ const ROLES: Role[] = [
   {
     company: "Gradeazy",
     title: "Software & Website Testing Intern",
-    dates: "March 2026 – Present",
-    location: "surat, gujarat, india",
+    dates: "Feb 2026 – May 2026",
+    location: "Surat, Gujarat, India",
     logoSrc: "/logos/gradeazy_logo.jpeg",
     companyUrl: "https://gradeazy.com",
     logoRotation: -4,
     blurb: (
       <>
-        Ensuring software quality through SDLC methodologies, managing testing processes, and verifying database integrity.
+        Performed functional, API, UI, database, and security testing across web applications,
+        validating end-to-end workflows, identifying defects, and conducting XSS, IDOR, and
+        access-control checks.
       </>
     ),
   },
   {
     company: "FOSSASIA",
-    title: "Open Source contributor",
+    title: "Open Source Contributor",
     dates: "Jan 2026 – Present",
     location: "Singapore, Singapore",
     logoSrc: "/logos/fossasia.jpeg",
-    companyUrl: " http://fossasia.org ", // Placeholder URL
+    companyUrl: "https://fossasia.org",
     logoRotation: 5,
     blurb: (
       <>
-        Actively contributing to FOSSASIA&apos;s open-source projects, utilizing Git/GitHub for version control and collaborating with a global developer community.
+        Contributing to open-source projects through Git and GitHub, collaborating with maintainers
+        and developers on issues, pull requests, code improvements, and project documentation.
       </>
     ),
   },
   {
     company: "CommuSync",
-    title: "Full Stack Intern",
-    dates: "Jan 2026 – Mar 2026",
+    title: "Full Stack Developer Intern",
+    dates: "Dec 2025 – Mar 2026",
     location: "Noida, Uttar Pradesh, India",
     logoSrc: "/logos/sass.jpeg",
-    companyUrl: " https://www.commusync.in ", // Placeholder URL
+    companyUrl: "https://www.commusync.in",
     logoRotation: -3,
     blurb: (
       <>
-        Developing and optimizing full-stack applications with Next.js and TypeScript, improving core application performance by <Metric>[add value]%</Metric>.
+        Built full-stack platforms using Next.js, TypeScript, Express.js, and MongoDB with modular
+        APIs and role-based workflows. Developed HRaaS and AI Academy modules and integrated Groq AI
+        with Redis and BullMQ for asynchronous processing.
       </>
     ),
   },
   {
-    company: "Aadi foundation",
+    company: "Keploy",
+    title: "Open Source Contributor",
+    dates: "jan 2026 - sep 2026",
+    location: "Remote",
+    logoSrc: "/logos/keploy.jpeg",
+    companyUrl: "https://keploy.io",
+    logoRotation: -3,
+    blurb: (
+      <>
+        Built a Ruby Sinatra and PostgreSQL quickstart with Books and Reviews APIs, search,
+        filtering, pagination, and SQL analytics. Added Docker setup and automated Keploy
+        recording/replay with 20 API scenarios covering success and error paths.
+      </>
+    ),
+  },
+  {
+    company: "Aadi Foundation",
     title: "Web Developer",
     dates: "Oct 2025 – Nov 2025",
     location: "Delhi, India",
     logoSrc: "/logos/aadi.jpeg",
-    companyUrl: " https://linktr.ee/aadifoundation ", // Placeholder URL
+    companyUrl: "https://linktr.ee/aadifoundation",
     logoRotation: 6,
-    stickerBg: "#efe8fb", // Purple background from original code reused for color variety
+    stickerBg: "#efe8fb",
     blurb: (
       <>
-        Developing and deploying new web features using Firebase and JavaScript (ES6+), leading to a <Metric>[add value]%</Metric> increase in user engagement.
+        Developed and deployed web features using JavaScript and Firebase, focusing on responsive
+        interfaces, application functionality, and reliable deployment workflows.
       </>
     ),
   },
   {
     company: "Open Source Connect",
     title: "Open Source Contributor",
-    dates: "Aug 2025 – Oct 2023", // Non-sensical dates left as shown in the experience section
+    dates: "Aug 2025 – Oct 2025",
     location: "India",
     logoSrc: "/logos/connect.jpeg",
-    companyUrl: " https://www.osconnect.org/ ", // Placeholder URL
+    companyUrl: "https://www.osconnect.org/",
     logoRotation: -5,
     blurb: (
       <>
-        Improved project performance, accessibility, and documentation, resulting in a <Metric>[add value]%</Metric> increase in code contribution efficiency.
+        Contributed to open-source projects by improving documentation, accessibility, code quality,
+        and project usability while collaborating through Git-based development workflows.
       </>
     ),
   },
   {
     company: "GirlScript Summer of Code",
-    title: "Contributor – GirlScript Summer of Code 2025 (GSSoC '25)",
+    title: "Contributor – GirlScript Summer of Code 2025",
     dates: "Jul 2025 – Oct 2025",
     location: "India",
     logoSrc: "/logos/girlscriptsoc_logo.jpeg",
-    companyUrl: " https://gssoc.girlscript.tech/ ",
+    companyUrl: "https://gssoc.girlscript.tech/",
     logoRotation: -4,
     blurb: (
       <>
-        Collaborated with mentors within a competitive cohort to deliver critical features, optimizing key application functions to reduce user response time by <Metric>[add value]%</Metric>.
+        Contributed to open-source projects as part of GSSoC 2025, working with mentors and
+        maintainers to implement features, resolve issues, improve code quality, and submit
+        pull requests.
       </>
     ),
   },
 ];
+
 
 const ROLE_STAGGER_MS = 380;
 const FIRST_ROLE_DELAY_MS = 400;
@@ -151,86 +177,86 @@ export function ExperiencePage({
   const isMobile = useIsMobile();
   return (
     <PageAnimateContext.Provider value={{ animate, sessionKey }}>
-    <div style={{ position: "absolute", inset: 0 }}>
-      <Paper ruled={false} marginRule={false} />
+      <div style={{ position: "absolute", inset: 0 }}>
+        <Paper ruled={false} marginRule={false} />
 
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          paddingTop: "calc(var(--line) * 3)",
-          paddingBottom: "calc(var(--line) * 3)",
-          paddingLeft: isMobile
-            ? "calc(var(--pad-content) + 44px)"
-            : "calc(12% + var(--pad-content))",
-          paddingRight: isMobile ? "var(--pad-content)" : "8%",
-          overflowY: "auto",
-          // Ruled lines travel with the content on scroll. background-
-          // attachment: local binds the bg to the content so the rules
-          // move together with the text — without it the bg sticks to
-          // the scroll container and text drifts across fixed rules.
-          backgroundImage: "var(--rule-background)",
-          backgroundAttachment: "local",
-        }}
-      >
-        <PageBackButton onClose={onClose} />
-
-        {/* Page label */}
         <div
           style={{
             position: "absolute",
-            // Baseline floats 0.19 × --line above rule 2.
-            top: "calc(var(--line) * 2.57 - var(--fs-meta) * 0.86)",
-            left: isMobile
-              ? "calc(44px + var(--pad-content))"
-              : "calc(3% + var(--pad-chrome))",
-            fontFamily: "var(--font-mono)",
-            fontSize: "var(--fs-meta)",
-            letterSpacing: "0.25em",
-            textTransform: "uppercase",
-            color:
-              "color-mix(in srgb, var(--color-ink-soft) 55%, transparent)",
-            lineHeight: 1,
+            inset: 0,
+            paddingTop: "calc(var(--line) * 3)",
+            paddingBottom: "calc(var(--line) * 3)",
+            paddingLeft: isMobile
+              ? "calc(var(--pad-content) + 44px)"
+              : "calc(12% + var(--pad-content))",
+            paddingRight: isMobile ? "var(--pad-content)" : "8%",
+            overflowY: "auto",
+            // Ruled lines travel with the content on scroll. background-
+            // attachment: local binds the bg to the content so the rules
+            // move together with the text — without it the bg sticks to
+            // the scroll container and text drifts across fixed rules.
+            backgroundImage: "var(--rule-background)",
+            backgroundAttachment: "local",
           }}
         >
-          journal · experience
-        </div>
+          <PageBackButton onClose={onClose} />
 
-        {/* Page title */}
-        <h1
-          style={{
-            fontFamily: "var(--font-script)",
-            fontSize: "var(--fs-display)",
-            fontWeight: 500,
-            color: "var(--color-ink)",
-            margin: 0,
-            lineHeight: "calc(var(--line) * 3)",
-          }}
-        >
-          experience
-        </h1>
+          {/* Page label */}
+          <div
+            style={{
+              position: "absolute",
+              // Baseline floats 0.19 × --line above rule 2.
+              top: "calc(var(--line) * 2.57 - var(--fs-meta) * 0.86)",
+              left: isMobile
+                ? "calc(44px + var(--pad-content))"
+                : "calc(3% + var(--pad-chrome))",
+              fontFamily: "var(--font-mono)",
+              fontSize: "var(--fs-meta)",
+              letterSpacing: "0.25em",
+              textTransform: "uppercase",
+              color:
+                "color-mix(in srgb, var(--color-ink-soft) 55%, transparent)",
+              lineHeight: 1,
+            }}
+          >
+            journal · experience
+          </div>
 
-        {/* Role list — small left indent keeps entries off the margin
+          {/* Page title */}
+          <h1
+            style={{
+              fontFamily: "var(--font-script)",
+              fontSize: "var(--fs-display)",
+              fontWeight: 500,
+              color: "var(--color-ink)",
+              margin: 0,
+              lineHeight: "calc(var(--line) * 3)",
+            }}
+          >
+            experience
+          </h1>
+
+          {/* Role list — small left indent keeps entries off the margin
             rule without the old timeline gutter. */}
-        <div
-          style={{
-            position: "relative",
-            marginTop: "var(--line)",
-            paddingLeft: isMobile ? 0 : 24,
-          }}
-        >
-          {ROLES.map((role, i) => (
-            <RoleEntry
-              key={`${role.company}-${role.title}`}
-              role={role}
-              delayMs={FIRST_ROLE_DELAY_MS + i * ROLE_STAGGER_MS}
-            />
-          ))}
+          <div
+            style={{
+              position: "relative",
+              marginTop: "var(--line)",
+              paddingLeft: isMobile ? 0 : 24,
+            }}
+          >
+            {ROLES.map((role, i) => (
+              <RoleEntry
+                key={`${role.company}-${role.title}`}
+                role={role}
+                delayMs={FIRST_ROLE_DELAY_MS + i * ROLE_STAGGER_MS}
+              />
+            ))}
+          </div>
         </div>
-      </div>
 
-      <PageCorner pageNumber="02" />
-    </div>
+        <PageCorner pageNumber="02" />
+      </div>
     </PageAnimateContext.Provider>
   );
 }

@@ -8,9 +8,10 @@ export const PAGE_ORDER = [
   "about",
   "experience",
   "linkedin",
-    "blog",
-    "techstack",
-    "contact",
+  "blog",
+  "techstack",
+  "projects",
+  "contact",
 ] as const;
 
 export type PageKey = (typeof PAGE_ORDER)[number];

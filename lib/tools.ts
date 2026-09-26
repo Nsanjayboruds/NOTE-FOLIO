@@ -29,6 +29,11 @@ export const toolSchemas = {
     description: "Display the tech stack page.",
     parameters: z.object({}),
   },
+  showProjects: {
+    description:
+      "Display Nishant's projects page. Call this when the user asks about projects, side projects, what he's built, portfolio pieces, or personal work.",
+    parameters: z.object({}),
+  },
 } as const;
 
 export type ToolName = keyof typeof toolSchemas;

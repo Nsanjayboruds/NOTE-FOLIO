@@ -80,6 +80,15 @@ const OLLAMA_TOOLS = [
       parameters: { type: "object", properties: {}, required: [] },
     },
   },
+  {
+    type: "function",
+    function: {
+      name: "showProjects",
+      description:
+        "Display Nishant's projects page. Call when the user asks about projects, side projects, portfolio, or what he's built.",
+      parameters: { type: "object", properties: {}, required: [] },
+    },
+  },
 ];
 
 function encode(code: string, payload: unknown): string {

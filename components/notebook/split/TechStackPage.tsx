@@ -22,75 +22,102 @@ type TechCategory = {
 
 const TECH_STACK: TechCategory[] = [
   {
-    category: "Frontend",
-    description: "Building responsive, interactive user experiences",
+    category: "Languages",
+    description: "Programming languages used for development and problem-solving",
     technologies: [
-      { name: "React", proficiency: "expert", icon: "⚛️" },
-      { name: "TypeScript", proficiency: "expert", icon: "📘" },
-      { name: "Next.js", proficiency: "expert", icon: "▲" },
-      { name: "Tailwind CSS", proficiency: "proficient", icon: "🎨" },
-      { name: "CSS3 & Animations", proficiency: "expert", icon: "✨" },
+      { name: "C++", proficiency: "proficient", icon: "⚙️" },
+      { name: "Python", proficiency: "proficient", icon: "🐍" },
+      { name: "JavaScript", proficiency: "proficient", icon: "🟨" },
     ],
   },
+
+  {
+    category: "Frontend",
+    description: "Building responsive and interactive web applications",
+    technologies: [
+      { name: "React.js", proficiency: "proficient", icon: "⚛️" },
+      { name: "Next.js", proficiency: "proficient", icon: "▲" },
+      { name: "TypeScript", proficiency: "proficient", icon: "📘" },
+      { name: "Tailwind CSS", proficiency: "proficient", icon: "🎨" },
+    ],
+  },
+
   {
     category: "Backend",
-    description: "Scalable APIs and server-side logic",
+    description: "Developing REST APIs, backend services, and application logic",
     technologies: [
-      { name: "Node.js", proficiency: "expert", icon: "🟢" },
+      { name: "Node.js", proficiency: "proficient", icon: "🟢" },
       { name: "Express.js", proficiency: "proficient", icon: "🚀" },
       { name: "Python", proficiency: "proficient", icon: "🐍" },
-      { name: "PostgreSQL", proficiency: "proficient", icon: "🗄️" },
-      { name: "MongoDB", proficiency: "proficient", icon: "🍃" },
-      { name: "Redis", proficiency: "learning", icon: "⚡" },
+      { name: "Go", proficiency: "learning", icon: "🔵" },
+      { name: "REST APIs", proficiency: "proficient", icon: "🌐" },
     ],
   },
+
   {
-    category: "AI/ML",
-    description: "Integrating AI models and building intelligent features",
+    category: "Databases & Caching",
+    description: "Working with databases, data modeling, queries, and caching",
     technologies: [
-      { name: "Claude API", proficiency: "expert", icon: "🤖" },
-      { name: "OpenAI API", proficiency: "proficient", icon: "🧠" },
-      { name: "LangChain", proficiency: "proficient", icon: "🔗" },
-      { name: "Prompt Engineering", proficiency: "expert", icon: "💡" },
-      { name: "RAG Systems", proficiency: "proficient", icon: "📚" },
+      { name: "PostgreSQL", proficiency: "proficient", icon: "🐘" },
+      { name: "MongoDB", proficiency: "proficient", icon: "🍃" },
+      { name: "Supabase", proficiency: "proficient", icon: "⚡" },
+      { name: "Redis", proficiency: "learning", icon: "🔴" },
+      { name: "BullMQ", proficiency: "learning", icon: "📦" },
     ],
   },
+
+  {
+    category: "AI & LLMs",
+    description: "Building practical AI-powered features and LLM integrations",
+    technologies: [
+      { name: "Groq API", proficiency: "proficient", icon: "⚡" },
+      { name: "LLaMA", proficiency: "proficient", icon: "🧠" },
+      { name: "Prompt Engineering", proficiency: "proficient", icon: "💡" },
+      { name: "RAG", proficiency: "learning", icon: "📚" },
+      { name: "LangChain", proficiency: "learning", icon: "🔗" },
+    ],
+  },
+
   {
     category: "DevOps & Tools",
-    description: "Deployment, CI/CD, and development workflow",
+    description: "Version control, containers, API testing, and development workflows",
     technologies: [
+      { name: "Git", proficiency: "proficient", icon: "📝" },
+      { name: "GitHub", proficiency: "proficient", icon: "🔀" },
+      { name: "GitLab", proficiency: "proficient", icon: "🦊" },
       { name: "Docker", proficiency: "proficient", icon: "🐳" },
-      { name: "GitHub/GitLab", proficiency: "expert", icon: "🔀" },
-      { name: "Vercel", proficiency: "expert", icon: "▲" },
-      { name: "Git", proficiency: "expert", icon: "📝" },
       { name: "Postman", proficiency: "proficient", icon: "📮" },
+      { name: "CI/CD", proficiency: "learning", icon: "⚙️" },
     ],
   },
+
   {
-    category: "Data Structures & Algorithms",
+    category: "Computer Science",
     description: "Core CS fundamentals and problem-solving",
     technologies: [
-      { name: "Arrays & Strings", proficiency: "expert", icon: "📊" },
-      { name: "Trees & Graphs", proficiency: "expert", icon: "🌳" },
-      { name: "Dynamic Programming", proficiency: "proficient", icon: "⚙️" },
-      { name: "Sorting & Searching", proficiency: "expert", icon: "🔍" },
+      { name: "Data Structures & Algorithms", proficiency: "proficient", icon: "🧩" },
+      { name: "OOP", proficiency: "proficient", icon: "🏗️" },
+      { name: "DBMS", proficiency: "proficient", icon: "🗄️" },
+      { name: "Operating Systems", proficiency: "learning", icon: "💻" },
+      { name: "Computer Networks", proficiency: "learning", icon: "🌐" },
     ],
   },
+
   {
-    category: "Additional Skills",
-    description: "Other tools and technologies",
+    category: "Backend & Integrations",
+    description: "Authentication, authorization, asynchronous processing, and integrations",
     technologies: [
-      { name: "Clerk Authentication", proficiency: "proficient", icon: "🔐" },
-      { name: "Stripe Integration", proficiency: "learning", icon: "💳" },
-      { name: "REST APIs", proficiency: "expert", icon: "🌐" },
-      { name: "GraphQL", proficiency: "learning", icon: "🔱" },
+      { name: "JWT Authentication", proficiency: "proficient", icon: "🔐" },
+      { name: "RBAC", proficiency: "proficient", icon: "🛡️" },
+      { name: "Razorpay", proficiency: "proficient", icon: "💳" },
+      { name: "Cloudinary", proficiency: "proficient", icon: "☁️" },
+      { name: "SBI ePay", proficiency: "learning", icon: "🏦" },
     ],
   },
 ];
-
 const STATS = [
   { label: "GitHub Contributions", value: "25+", description: "Open source projects" },
-  { label: "Projects Built", value: "50+", description: "Full-stack applications" },
+  { label: " Production Projects", value: "6+", description: "Full-stack applications" },
   { label: "Languages", value: "5+", description: "JavaScript, Python, TypeScript, etc." },
   { label: "Years Coding", value: "3+", description: "Continuous learning & building" },
 ];

@@ -30,6 +30,7 @@ const TOOL_FALLBACK_REPLY: Record<ToolName, string> = {
   showLinkedIn: "Flipping through the posts.",
   showBlog: "Opening the blog.",
   showTechStack: "Showing the tech stack.",
+  showProjects: "Here's what he's been building.",
 };
 
 function rateLimitReply(err: unknown): string | null {
@@ -77,12 +78,13 @@ function kindToPageKey(kind: StageView["kind"]): PageKey {
 // The stack order matches the journal metaphor — each forward nav flips
 // the currently-visible page away to reveal the next one.
 const Z_FOR_KIND: Record<PageKey, number> = {
-  home: 7,
-  about: 6,
-  experience: 5,
-  linkedin: 4,
-  blog: 3,
-  techstack: 2,
+  home: 8,
+  about: 7,
+  experience: 6,
+  linkedin: 5,
+  blog: 4,
+  techstack: 3,
+  projects: 2,
   contact: 1,
 };
 
@@ -233,6 +235,7 @@ export function NotebookShell({
         "linkedin",
         "blog",
         "techstack",
+        "projects",
         "contact",
       ];
       if (!validKinds.includes(kind)) return;
