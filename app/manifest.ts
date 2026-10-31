@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Nishant Borude — Journal",
-    short_name: "Tsang Journal",
-    description:
-      "Nishant Borude's portfolio, rendered as a spiral-bound journal.",
+    name: "Nishant Borude | Developer Portfolio",
+   short_name: "Nishant Borude", 
+   description:
+"Portfolio of Nishant Borude, featuring software engineering, full-stack development, AI projects, and open-source contributions.",
     start_url: "/",
     display: "standalone",
     background_color: "rgb(250, 247, 240)",

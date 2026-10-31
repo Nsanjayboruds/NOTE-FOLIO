@@ -5,19 +5,17 @@ import "./globals.css";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : "http://localhost:3000");
+  "https://note-folio.onrender.com";
 
-const TITLE = "Nishant Borude — Journal";
+const TITLE = "Nishant Borude | Full Stack Developer| Backend developer";
 const DESCRIPTION =
-  "Nishant Borude's portfolio, rendered as a spiral-bound journal. Ask anything.";
+    "Explore Nishant Borude's portfolio, software engineering experience, full-stack projects, AI applications, and open-source contributions.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: TITLE,
   description: DESCRIPTION,
-  applicationName: "Nishant Borude — Journal",
+  applicationName: "Nishant Borude - PORTFOLIO'",
   authors: [{ name: "Nishant Borude" }],
   creator: "Nishant Borude",
   manifest: "/manifest.webmanifest",
@@ -37,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
-    creator: "@nishant-borude",
+    creator: "@nishant-borude"
   },
   robots: {
     index: true,
