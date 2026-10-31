@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   applicationName: "Nishant Borude - PORTFOLIO'",
 verification: {
-    google: "UT0Cs7IGzXCCV3Uq4a3yAt6QRD5KQGVBhqQY5puw ",
+    google: "UT0Cs7IGzXCCV3Uq4a3yAt6QRD5KQGVBhqQY5puw-5w",
   },
   authors: [{ name: "Nishant Borude" }],
   creator: "Nishant Borude",
