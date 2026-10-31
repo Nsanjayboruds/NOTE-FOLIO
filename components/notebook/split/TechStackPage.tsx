@@ -114,7 +114,7 @@ const TECH_STACK: TechCategory[] = [
       { name: "SBI ePay", proficiency: "learning", icon: "🏦" },
     ],
   },
-];
+]; 
 const STATS = [
   { label: "GitHub Contributions", value: "25+", description: "Open source projects" },
   { label: " Production Projects", value: "6+", description: "Full-stack applications" },
